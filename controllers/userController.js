@@ -39,6 +39,31 @@ async function createUser(req, res){
   }
 }
 
+async function updateUser(req, res){
+  const id = req.params.id
+  const {name,email,password} = req.body
 
+  const us = await User.findOne({_id:id})
 
-export{createUser}
+  const passwordHash = await hash(password,10)
+
+  const user = {
+    name,
+    email,
+    password: passwordHash,
+    due_date: us.due_date,
+    create_at: us.create_at,
+  }
+
+  try{
+    const update = await User.updateOne({_id:id}, user)
+    if(update.matchedCount === 0){
+      return res.status(422).json({eror: 'Usuario não encontrado'})
+    }
+    res.status(200).json(user)
+  }catch(error){
+    res.status(500).json({error: error})
+  }
+}
+
+export{createUser, updateUser}
