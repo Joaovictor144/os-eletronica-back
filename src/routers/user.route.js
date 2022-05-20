@@ -1,12 +1,14 @@
 import {Router} from 'express';
-import { createUser, updateUser } from '../controllers/userController';
-import { User } from '../models/User';
+import { authenticateUser, createUser, updateUser } from '../controllers/userController';
+
 
 
 
 const userRouter = Router();
 
-userRouter.post('/', createUser)
+userRouter.post('/register', createUser)
+
+userRouter.post('/login', authenticateUser )
 
 // userRouter.patch('/:id', updateUser)
 
