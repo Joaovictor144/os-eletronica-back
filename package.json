@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon --exec babel-node src/server.js",
-    "build": "babel ./ --extensions \".js\" --out-dir dist --copy-files --source-maps --ignore 'node_modules/**/*.js'"
+    "build": "babel ./ --extensions \".js\" --out-dir dist --copy-files --source-maps --ignore 'node_modules'"
   },
   "dependencies": {
     "@babel/cli": "^7.17.10",
