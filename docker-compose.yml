@@ -1,7 +1,10 @@
+version: '3.7'
+
 services:
   mongo:
     image: mongo
     restart: always
+    container_name: mongo_docker
     ports:
       - 27017:27017
     environment:
@@ -11,13 +14,26 @@ services:
       - ./container:/data/     
 
   mongo-express:
-
     image: mongo-express
     restart: always
+    container_name: mongo_docker_express
     ports:
       - 8081:8081
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: eletronica
       ME_CONFIG_MONGODB_ADMINPASSWORD: eletronica
       ME_CONFIG_MONGODB_URL: mongodb://eletronica:eletronica@mongo:27017/
+
+
+  app:
+    restart: always
+    build:
+        context: .
+        dockerfile: Dockerfile  
+    container_name: api_docker
+    ports:
+      - 3000:3000  
+    volumes:
+      - .:/usr/app
+    
        

@@ -71,8 +71,8 @@ async function authenticateUser(req,res){
       },
       secret
     )
-
-    res.status(200).json({mensage:'Autenticação realizada com sucesso ' ,token})
+    const username = user.name
+    res.status(200).json({mensage:'Autenticação realizada com sucesso ', username, token})
 
 
 

@@ -5,4 +5,6 @@ COPY ["package.json", "./"]
 RUN yarn install
 COPY . .
 EXPOSE 3000
-CMD ["yarn", "dev"]
+RUN yarn build
+COPY [".env", "./dist/src"]
+CMD ["node" ,"./dist/src/server.js"]

@@ -2,8 +2,10 @@ import express from 'express';
 import { Router } from './routers';
 import 'dotenv/config'
 import mongoose from 'mongoose';
+import cors from 'cors';
 const app = express();
 
+app.options('*',cors())
 
 app.use(
   express.urlencoded({
