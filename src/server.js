@@ -5,7 +5,14 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 const app = express();
 
-app.options('*',cors())
+
+app.use(cors({
+  origin: '*',
+  optionsSuccessStatus: 200,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT"],
+  maxAge: 300,
+  credentials: true
+}))
 
 app.use(
   express.urlencoded({
