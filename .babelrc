@@ -3,6 +3,15 @@
   "compact": true,
   "plugins": [
     [
+      "@babel/plugin-transform-runtime",
+      {
+        "regenerator": true,
+        "corejs": 3
+      }
+    ],
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    "@babel/plugin-transform-async-to-generator",
+    [
       "module-resolver",
       {
           "alias": {
@@ -11,8 +20,6 @@
               "@controllers": "./src/controllers"
           }
       }
-  ],
-    ["@babel/plugin-proposal-decorators", { "legacy": true }],
-    "@babel/plugin-proposal-class-properties"
+  ]
   ]
 }
