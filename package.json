@@ -1,6 +1,9 @@
 {
   "name": "os-eletronica-back",
   "version": "1.0.0",
+  "engines": {
+    "node": "16.14.0"
+  },
   "main": "index.js",
   "license": "MIT",
   "scripts": {
