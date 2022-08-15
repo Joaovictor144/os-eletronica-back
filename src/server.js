@@ -7,7 +7,7 @@ const app = express();
 
 
 app.use(cors({
-  origin: '*',
+  origin: `${process.env.URI}`,
   optionsSuccessStatus: 200,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT"],
   maxAge: 300,
